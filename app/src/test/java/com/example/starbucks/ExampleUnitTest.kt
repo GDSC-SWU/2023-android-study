@@ -1,4 +1,4 @@
-package com.example.gdsc
+package com.example.starbucks
 
 import org.junit.Test
 
