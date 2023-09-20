@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">GDSC</string>
+
+    <string name="title">7 레이어 가나슈 케이크</string>
+    <string name="eng">7 Layer Ganache Cake</string>
+    <string name="content">초콜릿, 가나슈, 모카로 만든 시트와 크림이 7개의 층을\n이루어 모양부터 매력적인 케이크입니다.</string>
+    <string name="price">5,700원</string>
+    <string name="info">제품 영양 정보</string>
+    <string name="add">담기</string>
+    <string name="buy">주문하기</string>
 </resources>
