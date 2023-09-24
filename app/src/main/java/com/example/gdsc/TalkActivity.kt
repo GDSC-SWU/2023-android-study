@@ -12,7 +12,11 @@ class TalkActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rv_talk_preview)
         val adapter = TalkAdapter()
         val memberList = listOf(
-            Talker(R.drawable.apeach, "이채영", "ㅋㅋㅋㅋㅋ")
+            Talker(R.drawable.jenny, "이제니", "언니 언제와..","3"),
+            Talker(R.drawable.chaeyoung, "이채영", "ㅋㅋㅋㅋㅋ","5"),
+            Talker(R.drawable.apeach, "김유빈", "너 그럴줄 알았엌ㅋㅋ","9"),
+            Talker(R.drawable.apeach, "안소연", "뭐하냐","1"),
+            Talker(R.drawable.apeach, "정서영", "이따가 애들이랑 보겜ㄱ","7")
         )
         recyclerView.adapter = adapter
         adapter.submitList(memberList)
