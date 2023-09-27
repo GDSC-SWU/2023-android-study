@@ -15,4 +15,11 @@
     <string name="iv_description_cake_up_count">수량 늘리기</string>
     <string name="iv_description_cake_down_count">수량 줄이기</string>
     <string name="iv_description_cake_next">영양정보 바로가기</string>
+    <string name="tv_dummy_data">testtesttest</string>
+    <string name="tv_item_starbucks_order_title">Order</string>
+    <string name="tv_starbucks_order_title_entire">전체 메뉴</string>
+    <string name="tv_starbucks_order_title_mine">나만의 메뉴</string>
+    <string name="tv_starbucks_order_beverage_label">음료</string>
+    <string name="tv_starbucks_order_food_label">푸드</string>
+    <string name="tv_starbucks_order_product_label">상품</string>
 </resources>

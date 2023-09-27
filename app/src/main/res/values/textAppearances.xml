@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Starbucks" parent="">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Display">
+        <item name="fontFamily">@font/font_pretendard_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">36dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Headline">
+        <item name="fontFamily">@font/font_pretendard_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="lineHeight">28dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Subhead">
+        <item name="fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">28dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Body2_B">
+        <item name="fontFamily">@font/font_pretendard_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Body2_M">
+        <item name="fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Body1_B">
+        <item name="fontFamily">@font/font_pretendard_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Body1_M">
+        <item name="fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Caption2">
+        <item name="fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+
+    <style name="TextAppearance.Starbucks.Caption1">
+        <item name="fontFamily">@font/font_pretendard_medium</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">16dp</item>
+    </style>
+</resources>
