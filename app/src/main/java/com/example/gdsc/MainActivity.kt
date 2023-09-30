@@ -1,4 +1,4 @@
-package com.example.starbucks
+package com.example.gdsc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
