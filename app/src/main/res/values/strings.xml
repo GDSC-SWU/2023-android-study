@@ -22,4 +22,7 @@
     <string name="tv_starbucks_order_beverage_label">음료</string>
     <string name="tv_starbucks_order_food_label">푸드</string>
     <string name="tv_starbucks_order_product_label">상품</string>
+    <string name="navigation_first">첫번째</string>
+    <string name="navigation_second">두번째</string>
+    <string name="navigation_third">세번째</string>
 </resources>
