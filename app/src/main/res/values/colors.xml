@@ -5,4 +5,7 @@
     <color name="starbucks">#00592D</color>
     <color name="silver">#999999</color>
     <color name="talk_red">#E34234</color>
+    <color name="unclick">#FF696969</color>
+    <color name="click">#FF8A2BE2</color>
+
 </resources>
