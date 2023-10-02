@@ -50,4 +50,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
     implementation ("androidx.activity:activity-ktx:1.7.2")
+    //jetpack navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 }
