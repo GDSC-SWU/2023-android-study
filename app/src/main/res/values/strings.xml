@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GDSC</string>
+
+    <string name="tv_bottom_navigation_comments">comments</string>
+    <string name="tv_bottom_navigation_calender">calender</string>
+    <string name="tv_bottom_navigation_charts">charts</string>
 </resources>

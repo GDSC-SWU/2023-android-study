@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/nav_bottom_navigation_calendar"
+        android:title="@string/tv_bottom_navigation_calender"
+        android:icon="@drawable/ic_calendar_today"/>
+
+    <item android:id="@+id/nav_bottom_navigation_charts"
+        android:title="@string/tv_bottom_navigation_charts"
+        android:icon="@drawable/ic_bar_chart"/>
+
+    <item android:id="@+id/nav_bottom_navigation_comments"
+        android:title="@string/tv_bottom_navigation_comments"
+        android:icon="@drawable/ic_comment" />
+</menu>
