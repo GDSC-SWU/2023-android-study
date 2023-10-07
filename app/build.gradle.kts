@@ -7,6 +7,11 @@ android {
     namespace = "com.example.gdsc"
     compileSdk = 33
 
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.gdsc"
         minSdk = 26
