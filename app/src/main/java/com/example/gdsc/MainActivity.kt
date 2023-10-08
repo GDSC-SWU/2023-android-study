@@ -1,50 +1,41 @@
 package com.example.gdsc
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.RelativeLayout
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.gdsc.databinding.ActivityMainBinding
+import retrofit2.Call
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val frame: RelativeLayout by lazy { // activity_main의 화면 부분
-        findViewById(R.id.body_container)
-    }
-
-    private val bottomNagivationView: BottomNavigationView by lazy {
-        findViewById(R.id.bottom_navigation)
-    }
-
+    private lateinit var binding: ActivityMainBinding
+    private val getMemberService = ServicePool.getMember
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        supportFragmentManager.beginTransaction().add(frame.id, FirstFragment()).commit()
-
-        bottomNagivationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_first -> {
-                    replaceFragment(FirstFragment())
-                    true
-                }
-
-                R.id.nav_second -> {
-                    replaceFragment(SecondFragment())
-                    true
-                }
-
-                R.id.nav_third -> {
-                    replaceFragment(ThirdFragment())
-                    true
-                }
-
-                else -> false
-            }
-        }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        getMemberApi()
     }
-    fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(frame.id, fragment).commit()
+
+    private fun getMemberApi() {
+        val adapter = IntroductionAdapter()
+        binding.rvIntroductionGdscAndroid.adapter = adapter
+        getMemberService.getMember().enqueue(object : retrofit2.Callback<List<MemberDto>> {
+            override fun onResponse(
+                call: Call<List<MemberDto>>, response: Response<List<MemberDto>>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.let { adapter.submitList(it) }
+                } else {
+                    Log.d("error", "실패한 응답")
+                }
+            }
+
+            override fun onFailure(call: Call<List<MemberDto>>, t: Throwable) {
+                t.message?.let { Log.d("error", it) } ?: "서버통신 실패(응답값 X)"
+            }
+        })
     }
 }
