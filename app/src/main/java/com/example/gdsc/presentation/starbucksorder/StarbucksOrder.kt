@@ -1,4 +1,4 @@
-package com.example.gdsc.starbucksorder
+package com.example.gdsc.presentation.starbucksorder
 
 data class StarbucksOrder(
     val image: String,

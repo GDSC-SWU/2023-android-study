@@ -1,11 +1,11 @@
-package com.example.gdsc.starbucksorder
+package com.example.gdsc.presentation.starbucksorder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.gdsc.ItemDiffCallback
 import com.example.gdsc.R
-import com.example.gdsc.starbucksorder.viewholder.StarbucksOrderViewHolder
+import com.example.gdsc.presentation.starbucksorder.viewholder.StarbucksOrderViewHolder
 
 class StarbucksOrderAdapter : ListAdapter<StarbucksOrder, StarbucksOrderViewHolder>(
     StarbucksOrderDiffCallback
