@@ -1,4 +1,4 @@
-package com.example.gdsc.starbucksorder.viewholder
+package com.example.gdsc.presentation.starbucksorder.viewholder
 
 import android.view.View
 import android.widget.ImageView
@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.gdsc.R
-import com.example.gdsc.starbucksorder.StarbucksOrder
+import com.example.gdsc.presentation.starbucksorder.StarbucksOrder
 
 class StarbucksOrderViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val orderImage = view.findViewById<ImageView>(R.id.iv_starbucks_order_img)
