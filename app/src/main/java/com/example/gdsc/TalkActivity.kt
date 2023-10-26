@@ -1,24 +1,41 @@
 package com.example.gdsc
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
+import com.example.gdsc.databinding.ActivityMemberBinding
+import retrofit2.Call
+import retrofit2.Response
+
 
 class TalkActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMemberBinding
+    private val getMemberService = ServicePool.getMember
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_member)
+        binding = ActivityMemberBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        getMemberApi()
+    }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_talk_preview)
+    private fun getMemberApi() {
         val adapter = TalkAdapter()
-        val memberList = listOf(
-            Talker(R.drawable.jenny, "이제니", "언니 언제와..","3"),
-            Talker(R.drawable.chaeyoung, "이채영", "ㅋㅋㅋㅋㅋ","5"),
-            Talker(R.drawable.apeach, "김유빈", "너 그럴줄 알았엌ㅋㅋ","9"),
-            Talker(R.drawable.apeach, "안소연", "뭐하냐","1"),
-            Talker(R.drawable.apeach, "정서영", "이따가 애들이랑 보겜ㄱ","7")
-        )
-        recyclerView.adapter = adapter
-        adapter.submitList(memberList)
+        binding.rvTalkPreview.adapter = adapter
+        getMemberService.getMember().enqueue(object : retrofit2.Callback<List<MemberDto>> {
+            override fun onResponse(
+                call: Call<List<MemberDto>>, response: Response<List<MemberDto>>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.let { adapter.submitList(it) }
+                } else {
+                    Log.d("error", "실패한 응답")
+                }
+            }
+
+            override fun onFailure(call: Call<List<MemberDto>>, t: Throwable) {
+                t.message?.let { Log.d("error", it) } ?: "서버통신 실패(응답값 X)"
+            }
+        })
     }
 }
