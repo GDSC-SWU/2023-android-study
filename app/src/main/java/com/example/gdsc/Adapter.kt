@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 
 class IntroductionAdapter :
-    ListAdapter<Item, IntroductionAdapter.IntroductionViewHolder>(IntroductionDiffCallback()) {
+    ListAdapter<MemberDto, IntroductionAdapter.IntroductionViewHolder>(IntroductionDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IntroductionViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_item, parent, false)
+            .inflate(R.layout.item_introduction_gdsc_android, parent, false)
         return IntroductionViewHolder(view)
     }
 
@@ -22,23 +23,21 @@ class IntroductionAdapter :
     }
 
     class IntroductionViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        private val coffeeImage = view.findViewById<ImageView>(R.id.iv_coffee_image)
-        private val coffeeName = view.findViewById<TextView>(R.id.tv_coffee_name)
-        private val coffeegName = view.findViewById<TextView>(R.id.tv_coffee_egname)
-        fun bind(item: Item) {
-            coffeeImage.setImageDrawable(view.context.getDrawable(item.image))
-            coffeeName.text = item.name
-            coffeegName.text = item.egname
+        private val memberImage = view.findViewById<ImageView>(R.id.iv_member)
+        private val memberName = view.findViewById<TextView>(R.id.tv_member_name)
+        fun bind(member: MemberDto) {
+            memberImage.load(member.image)
+            memberName.text = member.name
         }
     }
 }
 
-class IntroductionDiffCallback : DiffUtil.ItemCallback<Item>() {
-    override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+class IntroductionDiffCallback : DiffUtil.ItemCallback<MemberDto>() {
+    override fun areItemsTheSame(oldItem: MemberDto, newItem: MemberDto): Boolean {
         return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+    override fun areContentsTheSame(oldItem: MemberDto, newItem: MemberDto): Boolean {
         return oldItem == newItem
     }
 }
