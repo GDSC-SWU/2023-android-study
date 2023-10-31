@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 class TalkAdapter :
-    ListAdapter<Talker, TalkAdapter.IntroductionViewHolder>(IntroductionDiffCallback()) {
+    ListAdapter<MemberDto, TalkAdapter.IntroductionViewHolder>(IntroductionDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IntroductionViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item, parent, false)
@@ -28,21 +28,21 @@ class TalkAdapter :
         private val memberName = view.findViewById<TextView>(R.id.tv_member_name)
         private val memberTalk = view.findViewById<TextView>(R.id.tv_talk)
         private val talkNumber = view.findViewById<Button>(R.id.btn_number)
-        fun bind(member: Talker) {
+        fun bind(member: MemberDto) {
             memberImage.setImageDrawable(view.context.getDrawable(member.image))
             memberName.text = member.name
-            memberTalk.text = member.talk
-            talkNumber.text = member.number
+            //memberTalk.text = member.talk
+           // talkNumber.text = member.number
         }
     }
 }
 
-class IntroductionDiffCallback : DiffUtil.ItemCallback<Talker>() {
-    override fun areItemsTheSame(oldItem: Talker, newItem: Talker): Boolean {
+class IntroductionDiffCallback : DiffUtil.ItemCallback<MemberDto>() {
+    override fun areItemsTheSame(oldItem: MemberDto, newItem: MemberDto): Boolean {
         return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: Talker, newItem: Talker): Boolean {
+    override fun areContentsTheSame(oldItem: MemberDto, newItem: MemberDto): Boolean {
         return oldItem == newItem
     }
 }
