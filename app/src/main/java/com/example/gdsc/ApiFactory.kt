@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 object ApiFactory {
     private const val BASE_URL =
-        "https://gdsc-4f545-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/"
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
