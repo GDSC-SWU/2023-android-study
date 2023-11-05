@@ -20,22 +20,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getMemberApi() {
-        val adapter = IntroductionAdapter()
-        binding.rvIntroductionGdscAndroid.adapter = adapter
-        getMemberService.getMember().enqueue(object : retrofit2.Callback<List<MemberDto>> {
+//        val adapter = IntroductionAdapter()
+//        binding.rvIntroductionGdscAndroid.adapter = adapter
+        getMemberService.getMember().enqueue(object : retrofit2.Callback<MemberDto> {
             override fun onResponse(
-                call: Call<List<MemberDto>>, response: Response<List<MemberDto>>
+                call: Call<MemberDto>, response: Response<MemberDto>
             ) {
                 if (response.isSuccessful) {
-                    response.body()?.let { adapter.submitList(it) }
+                    response.body()?.let { Log.d("result", it.toString()) }
                 } else {
                     Log.d("error", "실패한 응답")
                 }
             }
 
-            override fun onFailure(call: Call<List<MemberDto>>, t: Throwable) {
+            override fun onFailure(call: Call<MemberDto>, t: Throwable) {
                 t.message?.let { Log.d("error", it) } ?: "서버통신 실패(응답값 X)"
             }
+
         })
     }
 }
