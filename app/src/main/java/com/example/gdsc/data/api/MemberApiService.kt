@@ -7,4 +7,6 @@ import retrofit2.http.GET
 interface MemberApiService {
     @GET("member.json")
     fun getMember(): Call<List<MemberDto>>
+
+
 }
