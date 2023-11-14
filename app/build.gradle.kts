@@ -1,7 +1,9 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
     id("com.google.gms.google-services")
 }
 
@@ -15,17 +17,30 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", Properties().apply {
+                load(project.rootProject.file("local.properties").inputStream())
+            }["base.url"].toString())
+            buildConfigField("String", "SERVICE_KEY", Properties().apply {
+                load(project.rootProject.file("local.properties").inputStream())
+            }["service.key"].toString())
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", Properties().apply {
+                load(project.rootProject.file("local.properties").inputStream())
+            }["base.url"].toString())
+            buildConfigField("String", "SERVICE_KEY", Properties().apply {
+                load(project.rootProject.file("local.properties").inputStream())
+            }["service.key"].toString())
         }
     }
     compileOptions {
@@ -35,9 +50,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -54,8 +70,8 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0")
     //viewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation ("androidx.fragment:fragment-ktx:1.6.1")
-    implementation ("androidx.activity:activity-ktx:1.7.2")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.activity:activity-ktx:1.7.2")
 
     //jetpack navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
@@ -67,9 +83,9 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
 
     //retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-    implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
 
